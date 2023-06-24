@@ -24,7 +24,7 @@ public class ExcelUtility {
             sheet = workbook.getSheet(sheetName);
         }
         catch (Exception e){
-            System.out.println("e.getMessage() = " + e.getMessage());
+            System.out.println("Hata Mesajı : " + e.getMessage());
         }
 
         for (int i = 0; i < sheet.getPhysicalNumberOfRows(); i++) {
@@ -62,7 +62,7 @@ public class ExcelUtility {
                 workbook.close();
                 outputStream.close();
             } catch (Exception e) {
-
+                System.out.println(e.getMessage());
             }
         }
         else {
