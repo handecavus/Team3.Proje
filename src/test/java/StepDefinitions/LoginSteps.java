@@ -7,6 +7,7 @@ import Utilities.GWD;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Point;
 
 import java.util.ArrayList;
 
@@ -19,24 +20,26 @@ public class LoginSteps {
     @Given("Navigate to Campus")
     public void navigateToCampus() {
         GWD.getDriver().get("https://test.mersys.io/");
+        GWD.getDriver().manage().window().setPosition(new Point(2000,0));
         GWD.getDriver().manage().window().maximize();
+
     }
 
     @When("Enter {string} username and password")
     public void enterUsernameAndPassword(String text) {
         ArrayList<ArrayList<String>> data =
-                ExcelUtility.getData("src/main/resources/LoginData.xlsx", "loginData",2);
+                ExcelUtility.getData("src/main/resources/LoginData.xlsx", "Sayfa1",2);
 
         switch (text){
             case "admin":
                 dc.sendKeysFunction(dc.username, data.get(0).get(0));
-                dc.sendKeysFunction(dc.password, data.get(1).get(0));
+                dc.sendKeysFunction(dc.password, data.get(0).get(1));
                 dc.clickFunction(dc.loginButton);
                 break;
 
             case "teacher":
-                dc.sendKeysFunction(dc.username, data.get(1).get(2));
-                dc.sendKeysFunction(dc.password, data.get(2).get(2));
+                dc.sendKeysFunction(dc.username, data.get(1).get(0));
+                dc.sendKeysFunction(dc.password, data.get(1).get(1));
                 dc.clickFunction(dc.loginButton);
                 break;
 
