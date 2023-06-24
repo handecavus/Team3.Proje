@@ -76,7 +76,7 @@ public class ExcelUtility {
                 sheet = workbook.getSheet("campusTest");
             }
             catch (Exception e){
-
+                System.out.println(e.getMessage());
             }
 
             Row yeniSatir = sheet.createRow( sheet.getPhysicalNumberOfRows() );
@@ -98,7 +98,7 @@ public class ExcelUtility {
                 outputStream.close();
 
             } catch (Exception e) {
-
+                System.out.println(e.getMessage());
             }
 
         }
