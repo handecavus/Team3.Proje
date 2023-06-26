@@ -13,7 +13,7 @@ public class Hooks {
     public void after(Scenario scenario){
         System.out.println("Senaryo bitti");
 
-        ExcelUtility.writeExcel("src/test/java/ApachePOI/ScenarioStatus.xlsx", scenario, GWD.threadBrowserGet());
+        ExcelUtility.writeExcel("src/test/java/ApachePOI/ReportScenario.xlsx", scenario, GWD.threadBrowserGet());
 
         if (scenario.isFailed()){
             TakesScreenshot ts = (TakesScreenshot) GWD.getDriver();
@@ -24,7 +24,5 @@ public class Hooks {
         GWD.quitDriver();
 
     }
-
-
 
 }
